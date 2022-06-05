@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="wscvua" translate="label" sortOrder="200">
+            <label>WS-cv-ua</label>
+        </tab>
+        <section id="wscvua" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                 showInStore="0">
+            <label>Ace editor</label>
+            <tab>wscvua</tab>
+            <resource>Wscvua_AceEditor::ace</resource>
+            <group id="info" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <frontend_model>Wscvua\AceEditor\Block\Adminhtml\System\Config\Fieldset\Info</frontend_model>
+            </group>
+            <group id="code" translate="label" type="text" sortOrder="10" showInDefault="1">
+                <label>Settings</label>
+                <field id="theme" translate="label comment" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Code theme</label>
+                    <source_model>\Wscvua\AceEditor\Model\Config\Source\Theme</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\HtmlCode">
+        <arguments>
+            <argument name="theme" xsi:type="string">dawn</argument>
+            <argument name="mode" xsi:type="string">html</argument>
+            <argument name="height" xsi:type="number">200</argument>
+        </arguments>
+    </type>
+    <virtualType name="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\JsCode"
+                 type="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\HtmlCode">
+        <arguments>
+            <argument name="mode" xsi:type="string">javascript</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\JsonCode"
+                 type="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\HtmlCode">
+        <arguments>
+            <argument name="mode" xsi:type="string">json</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\CssCode"
+                 type="Wscvua\AceEditor\Block\Adminhtml\System\Config\Field\HtmlCode">
+        <arguments>
+            <argument name="mode" xsi:type="string">css</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Wscvua\AceEditor\Model\Config\Source\Theme">
+        <arguments>
+            <argument name="options" xsi:type="array">
+                <item name="xcode" xsi:type="string">xcode</item>
+                <item name="vibrant_ink" xsi:type="string">vibrant_ink</item>
+                <item name="twilight" xsi:type="string">twilight</item>
+                <item name="tomorrow_night_eighties" xsi:type="string">tomorrow_night_eighties</item>
+                <item name="tomorrow_night_bright" xsi:type="string">tomorrow_night_bright</item>
+                <item name="tomorrow_night_blue" xsi:type="string">tomorrow_night_blue</item>
+                <item name="tomorrow_night" xsi:type="string">tomorrow_night</item>
+                <item name="tomorrow" xsi:type="string">tomorrow</item>
+                <item name="textmate" xsi:type="string">textmate</item>
+                <item name="terminal" xsi:type="string">terminal</item>
+                <item name="sqlserver" xsi:type="string">sqlserver</item>
+                <item name="solarized_light" xsi:type="string">solarized_light</item>
+                <item name="solarized_dark" xsi:type="string">solarized_dark</item>
+                <item name="pastel_on_dark" xsi:type="string">pastel_on_dark</item>
+                <item name="one_dark" xsi:type="string">one_dark</item>
+                <item name="nord_dark" xsi:type="string">nord_dark</item>
+                <item name="monokai" xsi:type="string">monokai</item>
+                <item name="mono_industrial" xsi:type="string">mono_industrial</item>
+                <item name="merbivore_soft" xsi:type="string">merbivore_soft</item>
+                <item name="merbivore" xsi:type="string">merbivore</item>
+                <item name="kuroir" xsi:type="string">kuroir</item>
+                <item name="kr_theme" xsi:type="string">kr_theme</item>
+                <item name="katzenmilch" xsi:type="string">katzenmilch</item>
+                <item name="iplastic" xsi:type="string">iplastic</item>
+                <item name="idle_fingers" xsi:type="string">idle_fingers</item>
+                <item name="gruvbox" xsi:type="string">gruvbox</item>
+                <item name="gob" xsi:type="string">gob</item>
+                <item name="github" xsi:type="string">github</item>
+                <item name="eclipse" xsi:type="string">eclipse</item>
+                <item name="dreamweaver" xsi:type="string">dreamweaver</item>
+                <item name="dracula" xsi:type="string">dracula</item>
+                <item name="dawn" xsi:type="string">dawn</item>
+                <item name="crimson_editor" xsi:type="string">crimson_editor</item>
+                <item name="cobalt" xsi:type="string">cobalt</item>
+                <item name="clouds_midnight" xsi:type="string">clouds_midnight</item>
+                <item name="clouds" xsi:type="string">clouds</item>
+                <item name="cloud9_night_low_color" xsi:type="string">cloud9_night_low_color</item>
+                <item name="cloud9_night" xsi:type="string">cloud9_night</item>
+                <item name="cloud9_day" xsi:type="string">cloud9_day</item>
+                <item name="chrome" xsi:type="string">chrome</item>
+                <item name="chaos" xsi:type="string">chaos</item>
+                <item name="ambiance" xsi:type="string">ambiance</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
