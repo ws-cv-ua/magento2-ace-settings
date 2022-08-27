@@ -1,5 +1,5 @@
 {
-    "name": "wscvua/magento2-ace-settings",
+    "name": "ws-cv-ua/magento2-ace-settings",
     "version": "1.0.1",
     "description": "Module add possibility to set some setting which defined in system.xml as code editor",
     "type": "magento2-module",
