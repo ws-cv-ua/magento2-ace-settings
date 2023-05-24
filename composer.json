@@ -1,9 +1,10 @@
 {
     "name": "wscvua/magento2-ace-settings",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Module add possibility to set some setting which defined in system.xml as code editor",
     "type": "magento2-module",
     "require": {
+        "php": "~8.0",
         "magento/framework": "*"
     },
     "license": [

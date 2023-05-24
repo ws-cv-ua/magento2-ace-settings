@@ -9,35 +9,30 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\View\Helper\SecureHtmlRenderer;
 use Wscvua\AceEditor\Helper\Config;
+use Magento\Framework\View\Asset\Repository as AssetRepository;
 
 class HtmlCode extends Field
 {
     /**
-     * @var Config
+     * Constructor
+     *
+     * @param Config $config
+     * @param AssetRepository $assetRepository
+     * @param string $mode
+     * @param int $height
+     * @param Context $context
+     * @param array $data
+     * @param SecureHtmlRenderer|null $secureRenderer
      */
-    private $config;
-
-    /**
-     * @var string
-     */
-    private $mode;
-
-    /**
-     * @var int
-     */
-    private $height;
-
     public function __construct(
-        Config $config,
-        string $mode,
-        int $height,
+        private readonly Config $config,
+        private readonly AssetRepository $assetRepository,
+        private readonly string $mode,
+        private readonly int $height,
         Context $context,
         array $data = [],
         ?SecureHtmlRenderer $secureRenderer = null
     ) {
-        $this->config = $config;
-        $this->mode = $mode;
-        $this->height = $height;
         parent::__construct($context, $data, $secureRenderer);
     }
 
@@ -69,13 +64,14 @@ HTML;
         $html .= $preHtml;
         $html .= '<script type="text/javascript">
             require(["jquery", "ace"], function ($) {
+                ace.config.set("basePath", "' . $this->getBaseLibUrl() . '");
                 $(document).ready(function () {
                     var input = $("#' . $elementId . '");
                     var editor = ace.edit("' . $blockId . '");
                     editor.setValue(input.val())
                     editor.moveCursorTo(0,0);
-                    editor.setTheme("ace/theme/' . $this->config->getTheme() . '");
-                    editor.session.setMode("ace/mode/' . $this->mode . '");
+                    editor.setTheme("ace/theme/' . $this->config->getTheme() . $this->getMinSuffix() . '");
+                    editor.session.setMode("ace/mode/' . $this->mode . $this->getMinSuffix() . '");
                     editor.on("change", function (e){
                         input.val(editor.getValue());
                     });
@@ -84,5 +80,24 @@ HTML;
             </script>';
 
         return $html;
+    }
+
+    /**
+     * @return string
+     */
+    private function getBaseLibUrl(): string
+    {
+        $url = $this->assetRepository->getUrl('Wscvua_AceEditor::js/lib/ext-rtl.js');
+        $url = str_replace("/ext-rtl.js", '', $url);
+        return str_replace("/ext-rtl.min.js", '', $url);
+    }
+
+    /**
+     * @return string
+     */
+    private function getMinSuffix(): string
+    {
+        $url = $this->assetRepository->getUrl('Wscvua_AceEditor::js/lib/ext-rtl.js');
+        return str_contains('.min.', $url) ? '.min' : '';
     }
 }
