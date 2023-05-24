@@ -70,8 +70,8 @@ HTML;
                     var editor = ace.edit("' . $blockId . '");
                     editor.setValue(input.val())
                     editor.moveCursorTo(0,0);
-                    editor.setTheme("ace/theme/' . $this->config->getTheme() . $this->getMinSuffix() . '");
-                    editor.session.setMode("ace/mode/' . $this->mode . $this->getMinSuffix() . '");
+                    editor.setTheme("ace/theme/' . $this->config->getTheme() . '.min");
+                    editor.session.setMode("ace/mode/' . $this->mode . '.min");
                     editor.on("change", function (e){
                         input.val(editor.getValue());
                     });
@@ -90,14 +90,5 @@ HTML;
         $url = $this->assetRepository->getUrl('Wscvua_AceEditor::js/lib/ext-rtl.js');
         $url = str_replace("/ext-rtl.js", '', $url);
         return str_replace("/ext-rtl.min.js", '', $url);
-    }
-
-    /**
-     * @return string
-     */
-    private function getMinSuffix(): string
-    {
-        $url = $this->assetRepository->getUrl('Wscvua_AceEditor::js/lib/ext-rtl.js');
-        return str_contains('.min.', $url) ? '.min' : '';
     }
 }
